@@ -61,12 +61,21 @@ function dateToWeekDay(dateStr) {
 	return isToday ? "Today" : weekday.slice(0, 3)
 }
 
+function dateToHour(dateStr) {
+	const date = new Date(dateStr)
+
+	const hoursUTC = date.getUTCHours()
+	const hours12 = ((hoursUTC + 11) % 12) + 1
+	const ampm = hoursUTC >= 12 ? "PM" : "AM"
+
+	return `${hours12} ${ampm}`
+}
+
 function setLocation(location) {
 
 }
 
 function set5DayForecast(forecast) {
-	console.log(forecast)
 	const dailyForecasts = forecast.DailyForecasts
 
 	document.getElementById("5-day-forecast").innerHTML = dailyForecasts.map((forecast) => `
@@ -86,12 +95,19 @@ function set5DayForecast(forecast) {
 }
 
 function setTodayForecast(forecast) {
-
+	console.log(forecast)
+	document.getElementById("today-forcast").innerHTML = forecast.map((forecast) => `
+		<div class="forecast-item">
+			<span class="time"> ${dateToHour(forecast.DateTime)} </span>
+			<img src="https://cdn-icons-png.flaticon.com/512/414/414825.png" alt="cloudy">
+			<span class="temp">${fahrenheitToCelsius(forecast.Temperature.Value)}°</span>
+		</div>
+	`).join("<hr/>")
 }
 
 async function getWeatherData(location) {
-	setLocation(location)
 	console.log(location)
+	setLocation(location)
 
 	const responses = await Promise.all([
 		get5DayForecast(location?.key ?? location),
