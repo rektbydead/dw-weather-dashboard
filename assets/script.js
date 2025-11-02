@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			setTimeout(() => {
 				dropdown.innerHTML = matches.map((location) => `
-					<li class="w-100 m-2" style="padding: 8px; cursor: pointer" onclick="console.log('clicou mudou:  ${location.name}')">
+					<li class="w-100 m-2" style="padding: 8px; cursor: pointer" onclick="getWeatherData(${location.key})">
 						<h2 style="margin: 0; font-size: 1.2em;">${location.name}</h2>
 						<h4 style="margin: 0; font-weight: normal; font-size: 0.9em;">${location.country}</h4>
 					</li>`
@@ -68,4 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			dropdown.style.display = "none";
 		}
 	})
-});
+})
+
+function getWeatherData(locationKey) {
+	console.log(locationKey)
+}
