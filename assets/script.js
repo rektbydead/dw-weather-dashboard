@@ -12,11 +12,11 @@ async function getLocationObject(locationName) {
 	})
 }
 
+let searchTypingTimeout = undefined
 
 document.addEventListener("DOMContentLoaded", () => {
 	const input = document.getElementById("weather-search-input");
 	const dropdown = document.getElementById("search-dropdown");
-
 
 	const cities = [
 		"New York", "Los Angeles", "Chicago", "Houston", "Miami",
@@ -24,29 +24,33 @@ document.addEventListener("DOMContentLoaded", () => {
 	]
 
 	input.addEventListener("input", () => {
-		const query = input.value.trim().toLowerCase()
+		clearTimeout(searchTypingTimeout)
 
-		if (query.length === 0) {
-			dropdown.style.display = "none"
-			return
-		}
+		searchTypingTimeout = setTimeout(() => {
+			const query = input.value.trim().toLowerCase()
 
-		const matches = cities.filter(city => city.toLowerCase().includes(query))
+			if (query.length === 0) {
+				dropdown.style.display = "none"
+				return
+			}
 
-		if (matches.length === 0) {
-			dropdown.style.display = "none"
-			return
-		}
+			const matches = cities.filter(city => city.toLowerCase().includes(query))
 
-		dropdown.innerHTML = matches.map((city) => `
+			if (matches.length === 0) {
+				dropdown.style.display = "none"
+				return
+			}
+
+			dropdown.innerHTML = matches.map((city) => `
 			<li class="w-100 m-2" style="padding: 8px; cursor: pointer" onclick="console.log('clicou mudou:  ${city}')">
 				<h2 style="margin: 0; font-size: 1.2em;">${city}</h2>
 				<h4 style="margin: 0; font-weight: normal; font-size: 0.9em;">USA</h4>
 			</li>`
-		).join("");
+			).join("");
 
 
-		dropdown.style.display = "block"
+			dropdown.style.display = "block"
+		}, 150)
 	})
 
 	/* Close dropdown when clicking outside */
