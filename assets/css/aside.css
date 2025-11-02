@@ -1,0 +1,27 @@
+@media (max-width: 900px) {
+    #page-main-content {
+        aside {
+            min-width: unset !important;
+            width: 100% !important;
+        }
+    }
+}
+
+@media (max-width: 1280px) {
+
+    aside {
+        width: 100% !important;
+
+        #aside-content {
+            flex-direction: row;
+        }
+
+        div div {
+            height: unset !important;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+    }
+}
