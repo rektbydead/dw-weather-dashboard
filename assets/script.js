@@ -1,31 +1,3 @@
-const ACCUWEATHER_API_KEY = "API_KEY"
-
-async function lookupLocation(locationName) {
-	const savedLocationString = localStorage.getItem(`location-lookup-${locationName}`)
-	if (savedLocationString) {
-		return JSON.parse(savedLocationString)
-	}
-
-	const response = await fetch(`https://dataservice.accuweather.com/locations/v1/cities/search?q=${locationName}`,{
-		headers: {
-			Authorization: `Bearer ${ACCUWEATHER_API_KEY}`,
-		},
-	})
-
-	const data = await response.json()
-	const mappedData = data.map((location) => {
-		return {
-			'key': location.Key,
-			'country': location.Country.EnglishName,
-			'name': location.AdministrativeArea.EnglishName,
-			'geo_location': location.GeoPosition
-		}
-	}).splice(0, 3)
-
-	localStorage.setItem(`location-lookup-${locationName}`, JSON.stringify(mappedData))
-	return mappedData
-}
-
 let searchTypingTimeout = undefined
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -53,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			setTimeout(() => {
 				dropdown.innerHTML = matches.map((location) => `
-					<li class="w-100 m-2" style="padding: 8px; cursor: pointer" onclick="console.log('clicou mudou:  ${location.name}')">
+					<li class="w-100 m-2" style="padding: 8px; cursor: pointer" onclick="getWeatherData(${location.key})">
 						<h2 style="margin: 0; font-size: 1.2em;">${location.name}</h2>
 						<h4 style="margin: 0; font-weight: normal; font-size: 0.9em;">${location.country}</h4>
 					</li>`
@@ -68,4 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			dropdown.style.display = "none";
 		}
 	})
-});
+})
+
+function getWeatherData(locationKey) {
+	console.log(locationKey)
+}
