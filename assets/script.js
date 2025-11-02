@@ -59,7 +59,7 @@ function dateToWeekDay(dateStr) {
 		date.getMonth() === today.getMonth() &&
 		date.getDate() === today.getDate()
 
-	return isToday ? "Today" : weekday.slice(0, 3)
+	return (isToday ? "Today" : weekday).slice(0, 3)
 }
 
 function dateToHour(dateStr) {

@@ -15,12 +15,34 @@
         #\35-day-forecast {
             flex-direction: row !important;
             height: 100px !important;
+            gap: 1rem !important;
+
+            hr {
+                width: unset !important;
+            }
 
             div {
                 height: unset !important;
                 flex-direction: column !important;
                 justify-content: center;
                 align-items: center;
+
+                h2 {
+                    text-align: center;
+                }
+
+                div {
+                    img {
+                        min-width: 50px !important;
+                        width: 50px !important;
+                        min-height: 50px !important;
+                        height: 50px !important;
+                    }
+
+                    h4 {
+                        display: none;
+                    }
+                }
             }
         }
     }
