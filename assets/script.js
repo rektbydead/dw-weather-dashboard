@@ -45,9 +45,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 				if (matches.length === 0) {
 					dropdown.innerHTML = `
-						<div class="w-100" style="padding: 8px;">
+						<li class="w-100 m-2" style="padding: 8px;">
 							<h3> No results found for "${query}" </h3>
-						</div>
+						</li>
 					`
 					return
 				}
