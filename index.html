@@ -32,19 +32,23 @@
 
         <div class="d-flex flex-grow-1 flex-row gap-3" id="page-main-content">
             <section class="d-flex flex-column flex-grow-6 gap-3" style="min-width: 700px">
-                <label for="weather-search-input" class="d-flex gap-3 align-items-center border-round border-color bg-color p-1">
-                    <svg class="icon" viewBox="0 0 512 512" aria-hidden="true" style="border: 1px solid red">
-                        <path d="M505 442.7L405.3 343a208 208 0 1 0-62.3 62.3L442.7 505a40 40 0 0 0 56.6-56.6zM208 336a128 128 0 1 1 128-128 128.14 128.14 0 0 1-128 128z"/>
-                    </svg>
+                <div class="search-wrapper w-50">
+                    <label for="weather-search-input" class="d-flex gap-2 px-2 align-items-center border-round border-color bg-color">
+                        <svg class="icon" viewBox="0 0 512 512" aria-hidden="true">
+                            <path d="M505 442.7L405.3 343a208 208 0 1 0-62.3 62.3L442.7 505a40 40 0 0 0 56.6-56.6zM208 336a128 128 0 1 1 128-128 128.14 128.14 0 0 1-128 128z"/>
+                        </svg>
 
-                    <input
-                            style="border: 1px solid red"
+                        <input
                             type="text"
                             id="weather-search-input"
                             placeholder="Search for a city..."
-                            class="search-input flex-grow-1 border-round p-2"
-                    />
-                </label>
+                            class="search-input flex-grow-1 border-round py-2"
+                        />
+                    </label>
+
+                    <ul id="search-dropdown" class="border-round my-auto border-color bg-color p-0" style="list-style-type: none; display: none; margin-top: 4px; position: absolute; z-index: 100; width: 100%; max-height: 200px; overflow-y: auto;">
+                    </ul>
+                </div>
 
                 <div class="flex-grow-3">
                 </div>
