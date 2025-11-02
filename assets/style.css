@@ -48,6 +48,12 @@ html, body {
     fill: #8e9aa3;
 }
 
+.icon-big {
+    width: 60px;
+    height: 60px;
+    fill: #8e9aa3;
+}
+
 @media (max-width: 1280px) {
     #page-main-content {
         flex-direction: column;
