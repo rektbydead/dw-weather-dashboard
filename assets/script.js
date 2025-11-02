@@ -84,7 +84,7 @@ function set5DayForecast(forecast) {
 	const dailyForecasts = forecast.DailyForecasts
 
 	document.getElementById("5-day-forecast").innerHTML = dailyForecasts.map((forecast) => `
-		<div class="d-flex flex-column flex-grow-1" style="height: 50px; justify-content: space-between; border: 1px solid red">
+		<div class="d-flex flex-row flex-grow-1" style="height: 50px; justify-content: space-between">
 			<h2 class="my-auto" style="width: 60px;"> ${dateToWeekDay(forecast.Date)} </h2>
 
 			<div class="d-flex flex-column justify-content-center align-items-center">

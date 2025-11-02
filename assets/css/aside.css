@@ -14,13 +14,13 @@
 
         #\35-day-forecast {
             flex-direction: row !important;
+            height: 100px !important;
 
             div {
                 height: unset !important;
-                flex-direction: column;
+                flex-direction: column !important;
                 justify-content: center;
                 align-items: center;
-
             }
         }
     }
