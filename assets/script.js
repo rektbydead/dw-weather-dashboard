@@ -1,6 +1,8 @@
 let searchTypingTimeout = undefined
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+	await getWeatherData(defaultLocationKey)
+
 	const input = document.getElementById("weather-search-input")
 	const dropdown = document.getElementById("search-dropdown")
 
@@ -25,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			setTimeout(() => {
 				dropdown.innerHTML = matches.map((location) => `
-					<li class="w-100 m-2" style="padding: 8px; cursor: pointer" onclick="getWeatherData(${location.key})">
+					<li class="w-100 m-2" style="padding: 8px; cursor: pointer" onclick="getWeatherData(${location})">
 						<h2 style="margin: 0; font-size: 1.2em;">${location.name}</h2>
 						<h4 style="margin: 0; font-weight: normal; font-size: 0.9em;">${location.country}</h4>
 					</li>`
@@ -42,6 +44,62 @@ document.addEventListener("DOMContentLoaded", () => {
 	})
 })
 
-function getWeatherData(locationKey) {
-	console.log(locationKey)
+function fahrenheitToCelsius(fahrenheit) {
+	return Math.ceil((fahrenheit - 32) * 5 / 9)
+}
+
+function dateToWeekDay(dateStr) {
+	const date = new Date(dateStr)
+	const weekday = date.toLocaleString("en-US", { weekday: "long" })
+
+	const today = new Date()
+	const isToday =
+		date.getFullYear() === today.getFullYear() &&
+		date.getMonth() === today.getMonth() &&
+		date.getDate() === today.getDate()
+
+	return isToday ? "Today" : weekday.slice(0, 3)
+}
+
+function setLocation(location) {
+
+}
+
+function set5DayForecast(forecast) {
+	console.log(forecast)
+	const dailyForecasts = forecast.DailyForecasts
+
+	document.getElementById("5-day-forecast").innerHTML = dailyForecasts.map((forecast) => `
+		<div class="d-flex flex-grow-1" style="height: 50px; justify-content: space-between">
+			<h2 class="my-auto" style="width: 60px;"> ${dateToWeekDay(forecast.Date)} </h2>
+
+			<div class="d-flex flex-column justify-content-center align-items-center">
+				<img style="height: 50%; aspect-ratio: 1/1" src="./images/clouds.png" alt="logo"/>
+				<h4 class="m-0 p-0" style="color: #dde0e4ff"> ${forecast.Day.IconPhrase}</h4>
+			</div>
+
+			<div class="my-auto">
+				<span style="color: #dde0e4ff">${fahrenheitToCelsius(forecast.Temperature.Maximum.Value)}</span><span>/${fahrenheitToCelsius(forecast.Temperature.Minimum.Value)}</span>
+			</div>
+		</div>
+	`).join(`<hr class="w-100">`)
+}
+
+function setTodayForecast(forecast) {
+
+}
+
+async function getWeatherData(location) {
+	setLocation(location)
+	console.log(location)
+
+	const responses = await Promise.all([
+		get5DayForecast(location?.key ?? location),
+		getTodayForecast(location?.key ?? location)
+	])
+
+	set5DayForecast(responses[0])
+	setTodayForecast(responses[1])
+
+	console.log(location)
 }

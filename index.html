@@ -72,7 +72,7 @@
                 <div class="d-flex flex-column flex-grow-3 bg-color border-round border-color p-3">
                     <h3 class="m-0"> TODAY'S FORECAST </h3>
 
-                    <div class="forecast h-100 gap-1" style="overflow-y: auto; border: 1px solid red">
+                    <div class="forecast h-100 gap-1" style="overflow-y: auto; border: 1px solid red" id="today-forcast">
                         <div class="forecast-item">
                             <span class="time">6:00 AM</span>
                             <img src="https://cdn-icons-png.flaticon.com/512/414/414825.png" alt="cloudy">
@@ -271,122 +271,15 @@
             </section>
 
             <aside class="d-flex flex-column flex-grow-1 bg-color border-round gap-3 p-3 border-color" style="width: 350px; min-width: 350px; overflow: hidden">
-                <h3 class="m-0"> 7-DAY FORECAST </h3>
+                <h3 class="m-0"> 5-DAY FORECAST </h3>
 
-                <div class="d-flex flex-column flex-grow-1" id="aside-content" style="overflow: auto">
-                    <div class="d-flex flex-grow-1" style="height: 50px; justify-content: space-between">
-                        <h2 class="my-auto" style="width: 60px;"> Today </h2>
-
-                        <div class="d-flex flex-row " style="align-items: center;">
-                            <img style="height: 50%; aspect-ratio: 1/1" src="./images/clouds.png" alt="logo"/>
-                            <h4 style="color: #dde0e4ff"> Cloudy</h4>
-                        </div>
-
-                        <div class="my-auto">
-                            <span style="color: #dde0e4ff">36</span>
-                            <span>/22</span>
-                        </div>
-                    </div>
-
-                    <hr class="w-100">
-
-                    <div class="d-flex flex-grow-1" style="height: 50px; justify-content: space-between">
-                        <h2 class="my-auto" style="width: 60px;"> Mon </h2>
-
-                        <div class="d-flex flex-row " style="align-items: center;">
-                            <img style="height: 50%; aspect-ratio: 1/1" src="./images/clouds.png" alt="logo"/>
-                            <h4 style="color: #dde0e4ff"> Cloudy</h4>
-                        </div>
-
-                        <div class="my-auto">
-                            <span style="color: #dde0e4ff">36</span>
-                            <span>/22</span>
-                        </div>
-                    </div>
-
-                    <hr class="w-100">
-
-                    <div class="d-flex flex-grow-1" style="height: 50px; justify-content: space-between">
-                        <h2 class="my-auto" style="width: 60px;"> Tue </h2>
-
-                        <div class="d-flex flex-row " style="align-items: center;">
-                            <img style="height: 50%; aspect-ratio: 1/1" src="./images/clouds.png" alt="logo"/>
-                            <h4 style="color: #dde0e4ff"> Cloudy</h4>
-                        </div>
-
-                        <div class="my-auto">
-                            <span style="color: #dde0e4ff">36</span>
-                            <span>/22</span>
-                        </div>
-                    </div>
-
-                    <hr class="w-100">
-
-                    <div class="d-flex flex-grow-1" style="height: 50px; justify-content: space-between">
-                        <h2 class="my-auto" style="width: 60px;"> Wed </h2>
-
-                        <div class="d-flex flex-row " style="align-items: center;">
-                            <img style="height: 50%; aspect-ratio: 1/1" src="./images/clouds.png" alt="logo"/>
-                            <h4 style="color: #dde0e4ff"> Cloudy</h4>
-                        </div>
-
-                        <div class="my-auto">
-                            <span style="color: #dde0e4ff">36</span>
-                            <span>/22</span>
-                        </div>
-                    </div>
-
-                    <hr class="w-100">
-
-                    <div class="d-flex flex-grow-1" style="height: 50px; justify-content: space-between">
-                        <h2 class="my-auto" style="width: 60px;"> Thu </h2>
-
-                        <div class="d-flex flex-row " style="align-items: center;">
-                            <img style="height: 50%; aspect-ratio: 1/1" src="./images/clouds.png" alt="logo"/>
-                            <h4 style="color: #dde0e4ff"> Cloudy</h4>
-                        </div>
-
-                        <div class="my-auto">
-                            <span style="color: #dde0e4ff">36</span>
-                            <span>/22</span>
-                        </div>
-                    </div>
-
-                    <hr class="w-100">
-
-                    <div class="d-flex flex-grow-1" style=" height: 50px; justify-content: space-between">
-                        <h2 class="my-auto" style="width: 60px;"> Fri </h2>
-
-                        <div class="d-flex flex-row" style="align-items: center;">
-                            <img style="height: 50%; aspect-ratio: 1/1" src="./images/clouds.png" alt="logo"/>
-                            <h4 style="color: #dde0e4ff"> Cloudy</h4>
-                        </div>
-
-                        <div class="my-auto">
-                            <span style="color: #dde0e4ff">36</span>
-                            <span>/22</span>
-                        </div>
-                    </div>
-
-                    <hr class="w-100">
-
-                    <div class="d-flex flex-grow-1" style="height: 50px; justify-content: space-between">
-                        <h2 class="my-auto" style="width: 60px;"> Sat </h2>
-
-                        <div class="d-flex flex-row " style="align-items: center;">
-                            <img style="height: 50%; aspect-ratio: 1/1" src="./images/clouds.png" alt="logo"/>
-                            <h4 style="color: #dde0e4ff"> Cloudy</h4>
-                        </div>
-
-                        <div class="my-auto">
-                            <span style="color: #dde0e4ff">36</span>
-                            <span>/22</span>
-                        </div>
-                    </div>
+                <div class="d-flex flex-column flex-grow-1" id="5-day-forecast" style="overflow: auto">
                 </div>
             </aside>
         </div>
     </div>
+
+    <script src="./assets/javascript/WeatherAPI.js"></script>
     <script src="./assets/script.js"></script>
 </body>
 </html>
