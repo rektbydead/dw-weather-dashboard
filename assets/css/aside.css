@@ -12,16 +12,16 @@
     aside {
         width: 100% !important;
 
-        #aside-content {
-            flex-direction: row;
-        }
+        #\35-day-forecast {
+            flex-direction: row !important;
 
-        div div {
-            height: unset !important;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            div {
+                height: unset !important;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
 
+            }
         }
     }
 }

@@ -1,7 +1,8 @@
 let searchTypingTimeout = undefined
 
 document.addEventListener("DOMContentLoaded", async () => {
-	await getWeatherData(defaultLocationKey)
+	const defaultLocation = await getDefaultLocation()
+	await getWeatherData(defaultLocation)
 
 	const input = document.getElementById("weather-search-input")
 	const dropdown = document.getElementById("search-dropdown")
@@ -71,15 +72,19 @@ function dateToHour(dateStr) {
 	return `${hours12} ${ampm}`
 }
 
-function setLocation(location) {
+async function setLocation(location) {
+	const todayForecast = await getTodayForecast(location.Key)
 
+	document.getElementById("city-name").innerHTML = location.EnglishName
+	document.getElementById("city-chance-of-rain").innerHTML = `Chance of rain: ${todayForecast[0].PrecipitationProbability}%`
+	document.getElementById("city-temperature").innerHTML = `${fahrenheitToCelsius(todayForecast[0].Temperature.Value)}°`
 }
 
 function set5DayForecast(forecast) {
 	const dailyForecasts = forecast.DailyForecasts
 
 	document.getElementById("5-day-forecast").innerHTML = dailyForecasts.map((forecast) => `
-		<div class="d-flex flex-grow-1" style="height: 50px; justify-content: space-between">
+		<div class="d-flex flex-column flex-grow-1" style="height: 50px; justify-content: space-between; border: 1px solid red">
 			<h2 class="my-auto" style="width: 60px;"> ${dateToWeekDay(forecast.Date)} </h2>
 
 			<div class="d-flex flex-column justify-content-center align-items-center">
@@ -106,16 +111,13 @@ function setTodayForecast(forecast) {
 }
 
 async function getWeatherData(location) {
-	console.log(location)
 	setLocation(location)
 
 	const responses = await Promise.all([
-		get5DayForecast(location?.key ?? location),
-		getTodayForecast(location?.key ?? location)
+		get5DayForecast(location.Key),
+		getTodayForecast(location.Key)
 	])
 
 	set5DayForecast(responses[0])
 	setTodayForecast(responses[1])
-
-	console.log(location)
 }
