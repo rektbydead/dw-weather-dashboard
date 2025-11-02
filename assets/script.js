@@ -1,4 +1,4 @@
-const ACCUWEATHER_API_KEY = "API_KEY"
+const ACCUWEATHER_API_KEY = "zpka_760a7f024433458ea1b84c1b33211150_924d685f"
 
 async function lookupLocation(locationName) {
 	const savedLocationString = localStorage.getItem(`location-lookup-${locationName}`)
