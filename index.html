@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Weather App</title>
     <link rel="stylesheet" href="./assets/style.css"/>
+    <link rel="stylesheet" href="./assets/aside.css"/>
     <link rel="stylesheet" href="./assets/bootstrapClasses.css"/>
 </head>
 <body>
@@ -30,7 +31,7 @@
             </div>
         </nav>
 
-        <div class="d-flex flex-grow-1 flex-row gap-3" id="page-main-content">
+        <div class="d-flex flex-grow-1 flex-row gap-3" id="page-main-content" style="overflow: hidden; border: 1px solid green">
             <section class="d-flex flex-column flex-grow-6 gap-3" style="min-width: 700px">
                 <div class="search-wrapper w-50">
                     <label for="weather-search-input" class="d-flex gap-2 px-2 align-items-center border-round border-color bg-color">
@@ -74,10 +75,10 @@
                 </div>
             </section>
 
-            <aside class="d-flex flex-column flex-grow-1 bg-color border-round p-3 border-color" style="width: 350px; min-width: 350px;">
-                <h3> 7-DAY FORECAST </h3>
+            <aside class="d-flex flex-column flex-grow-1 bg-color border-round gap-3 p-3 border-color" style="width: 350px; min-width: 350px; overflow: hidden">
+                <h3 class="m-0"> 7-DAY FORECAST </h3>
 
-                <div class="d-flex flex-column flex-grow-1" id="aside-content">
+                <div class="d-flex flex-column flex-grow-1" id="aside-content" style="overflow: auto">
                     <div class="d-flex flex-grow-1" style="height: 50px; justify-content: space-between">
                         <h2 class="my-auto" style="width: 60px;"> Today </h2>
 

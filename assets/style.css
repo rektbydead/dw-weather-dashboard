@@ -72,6 +72,7 @@ html, body {
 @media (max-width: 900px) {
     #app {
         flex-direction: column;
+        height: unset !important;
 
         nav {
             width: 100% !important;
