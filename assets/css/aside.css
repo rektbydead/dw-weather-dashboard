@@ -19,7 +19,7 @@
     aside {
         width: 100% !important;
 
-        #\35-day-forecast {
+        #daily-forecast {
             flex-direction: row !important;
             height: 100px !important;
             gap: 1rem !important;

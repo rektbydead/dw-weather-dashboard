@@ -83,7 +83,7 @@ async function setLocation(location) {
 
 function set5DayForecast(forecast) {
 	const dailyForecasts = forecast.DailyForecasts
-	document.getElementById("5-day-forecast").innerHTML = dailyForecasts.map((forecast) => `
+	document.getElementById("daily-forecast").innerHTML = dailyForecasts.map((forecast) => `
 		<div class="d-flex flex-row flex-grow-1" style="height: 50px; justify-content: space-between">
 			<h2 class="my-auto" style="width: 60px;"> ${dateToWeekDay(forecast.Date)} </h2>
 
@@ -110,7 +110,7 @@ function setTodayForecast(forecast) {
 }
 
 async function getWeatherData(location) {
-	setLocation(location)
+	await setLocation(location)
 
 	const responses = await Promise.all([
 		get5DayForecast(location.Key),
