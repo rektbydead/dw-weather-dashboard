@@ -6,6 +6,30 @@
 }
 
 @media (max-width: 900px) {
+
+    section {
+        #conteudo-principal {
+            h1 {
+                font-size: 3rem !important;
+            }
+
+            h2 {
+                font-size: 1.5rem !important;
+            }
+
+            #conteudo-principal-imagem {
+                width: 50% !important;
+                height: unset !important;
+                align-content: end;
+
+                img {
+                    width: 100% !important;
+                    height: unset !important;
+                }
+            }
+        }
+    }
+
     #page-main-content {
         aside {
             min-width: unset !important;
