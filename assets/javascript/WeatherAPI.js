@@ -15,15 +15,18 @@ async function getDefaultLocation() {
 	})
 
 	const location = await response.json()
-	const locationObject = {
-		'key': location.Key,
-		'country': location.Country.EnglishName,
-		'name': location.AdministrativeArea.EnglishName,
-		'geo_location': location.GeoPosition
-	}
+	localStorage.setItem(`default-location`, JSON.stringify(location))
+	return location
+}
 
-	localStorage.setItem(`default-location`, JSON.stringify(locationObject))
-	return locationObject
+async function getLocationByKey(locationKey) {
+	const response = await fetch(`https://dataservice.accuweather.com/locations/v1/${locationKey}/`,{
+		headers: {
+			Authorization: `Bearer ${ACCUWEATHER_API_KEY}`,
+		},
+	})
+
+	return response.json()
 }
 
 async function lookupLocation(locationName) {
@@ -39,17 +42,9 @@ async function lookupLocation(locationName) {
 	})
 
 	const data = await response.json()
-	const mappedData = data.map((location) => {
-		return {
-			'key': location.Key,
-			'country': location.Country.EnglishName,
-			'name': location.AdministrativeArea.EnglishName,
-			'geo_location': location.GeoPosition
-		}
-	}).splice(0, 3)
-
-	localStorage.setItem(`location-lookup-${locationName}`, JSON.stringify(mappedData))
-	return mappedData
+	const splicedData = data.splice(0, 3)
+	localStorage.setItem(`location-lookup-${locationName}`, JSON.stringify(splicedData))
+	return splicedData
 }
 
 async function get5DayForecast(locationKey) {

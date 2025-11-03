@@ -1,7 +1,8 @@
 let searchTypingTimeout = undefined
 
 document.addEventListener("DOMContentLoaded", async () => {
-	await getWeatherData(defaultLocationKey)
+	const defaultLocation = await getDefaultLocation()
+	await getWeatherData(defaultLocation)
 
 	const input = document.getElementById("weather-search-input")
 	const dropdown = document.getElementById("search-dropdown")
@@ -25,15 +26,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 				return
 			}
 
-			setTimeout(() => {
-				dropdown.innerHTML = matches.map((location) => `
-					<li class="w-100 m-2" style="padding: 8px; cursor: pointer" onclick="getWeatherData(${location})">
-						<h2 style="margin: 0; font-size: 1.2em;">${location.name}</h2>
-						<h4 style="margin: 0; font-weight: normal; font-size: 0.9em;">${location.country}</h4>
-					</li>`
-				).join("");
-			}, 1000)
-		}, 1500)
+			dropdown.innerHTML = matches.map((location) => `
+				<li class="w-100 m-2" style="padding: 8px; cursor: pointer" onclick='getWeatherData(${JSON.stringify(location)})'>
+					<h2 style="margin: 0; font-size: 1.2em;">${location.EnglishName}</h2>
+					<h4 style="margin: 0; font-weight: normal; font-size: 0.9em;">${location.Country.EnglishName}</h4>
+				</li>`
+			).join("");
+		}, 500)
 	})
 
 	/* Close dropdown when clicking outside */
@@ -58,7 +57,7 @@ function dateToWeekDay(dateStr) {
 		date.getMonth() === today.getMonth() &&
 		date.getDate() === today.getDate()
 
-	return isToday ? "Today" : weekday.slice(0, 3)
+	return (isToday ? "Today" : weekday).slice(0, 3)
 }
 
 function dateToHour(dateStr) {
@@ -71,23 +70,26 @@ function dateToHour(dateStr) {
 	return `${hours12} ${ampm}`
 }
 
-function setLocation(location) {
-
+async function setLocation(location) {
+	const todayForecast = await getTodayForecast(location.Key)
+	document.getElementById("city-name").innerHTML = location.EnglishName
+	document.getElementById("city-chance-of-rain").innerHTML = `Chance of rain: ${todayForecast[0].PrecipitationProbability}%`
+	document.getElementById("city-temperature").innerHTML = `${fahrenheitToCelsius(todayForecast[0].Temperature.Value)}°`
+	document.getElementById("city-weather-image").src = `https://www.accuweather.com/assets/images/weather-icons/v2a/${todayForecast[0].WeatherIcon}.svg`
 }
 
 function set5DayForecast(forecast) {
 	const dailyForecasts = forecast.DailyForecasts
-
-	document.getElementById("5-day-forecast").innerHTML = dailyForecasts.map((forecast) => `
-		<div class="d-flex flex-grow-1" style="height: 50px; justify-content: space-between">
+	document.getElementById("daily-forecast").innerHTML = dailyForecasts.map((forecast) => `
+		<div class="d-flex flex-row flex-grow-1" style="height: 50px; justify-content: space-between">
 			<h2 class="my-auto" style="width: 60px;"> ${dateToWeekDay(forecast.Date)} </h2>
 
 			<div class="d-flex flex-column justify-content-center align-items-center">
-				<img style="height: 50%; aspect-ratio: 1/1" src="./images/clouds.png" alt="logo"/>
+				<img style="height: 50%; aspect-ratio: 1/1" src="https://www.accuweather.com/assets/images/weather-icons/v2a/${forecast.Day.Icon}.svg" alt="logo"/>
 				<h4 class="m-0 p-0" style="color: #dde0e4ff"> ${forecast.Day.IconPhrase}</h4>
 			</div>
 
-			<div class="my-auto">
+			<div class="daily-forecast-temperature">
 				<span style="color: #dde0e4ff">${fahrenheitToCelsius(forecast.Temperature.Maximum.Value)}</span><span>/${fahrenheitToCelsius(forecast.Temperature.Minimum.Value)}</span>
 			</div>
 		</div>
@@ -95,11 +97,10 @@ function set5DayForecast(forecast) {
 }
 
 function setTodayForecast(forecast) {
-	console.log(forecast)
 	document.getElementById("today-forcast").innerHTML = forecast.map((forecast) => `
 		<div class="forecast-item">
 			<span class="time"> ${dateToHour(forecast.DateTime)} </span>
-			<img src="https://cdn-icons-png.flaticon.com/512/414/414825.png" alt="cloudy">
+			<img src="https://www.accuweather.com/assets/images/weather-icons/v2a/${forecast.WeatherIcon}.svg" alt="cloudy">
 			<span class="temp">${fahrenheitToCelsius(forecast.Temperature.Value)}°</span>
 		</div>
 	`).join("<hr/>")
@@ -107,15 +108,13 @@ function setTodayForecast(forecast) {
 
 async function getWeatherData(location) {
 	console.log(location)
-	setLocation(location)
+	await setLocation(location)
 
 	const responses = await Promise.all([
-		get5DayForecast(location?.key ?? location),
-		getTodayForecast(location?.key ?? location)
+		get5DayForecast(location.Key),
+		getTodayForecast(location.Key)
 	])
 
 	set5DayForecast(responses[0])
 	setTodayForecast(responses[1])
-
-	console.log(location)
 }

@@ -1,3 +1,10 @@
+.daily-forecast-temperature {
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 60px;
+    text-align: right;
+}
+
 @media (max-width: 900px) {
     #page-main-content {
         aside {
@@ -12,16 +19,42 @@
     aside {
         width: 100% !important;
 
-        #aside-content {
-            flex-direction: row;
-        }
+        #daily-forecast {
+            flex-direction: row !important;
+            height: 100px !important;
+            gap: 1rem !important;
 
-        div div {
-            height: unset !important;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            hr {
+                width: unset !important;
+            }
 
+            div {
+                height: unset !important;
+                flex-direction: column !important;
+                justify-content: center;
+                align-items: center;
+
+                h2 {
+                    text-align: center;
+                }
+
+                div {
+                    img {
+                        min-width: 50px !important;
+                        width: 50px !important;
+                        min-height: 50px !important;
+                        height: 50px !important;
+                    }
+
+                    h4 {
+                        display: none;
+                    }
+                }
+
+                .daily-forecast-temperature {
+                    text-align: center;
+                }
+            }
         }
     }
 }
