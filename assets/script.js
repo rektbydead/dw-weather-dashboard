@@ -78,17 +78,17 @@ async function setLocation(location) {
 	document.getElementById("city-name").innerHTML = location.EnglishName
 	document.getElementById("city-chance-of-rain").innerHTML = `Chance of rain: ${todayForecast[0].PrecipitationProbability}%`
 	document.getElementById("city-temperature").innerHTML = `${fahrenheitToCelsius(todayForecast[0].Temperature.Value)}°`
+	document.getElementById("city-weather-image").src = `https://www.accuweather.com/assets/images/weather-icons/v2a/${todayForecast[0].WeatherIcon}.svg`
 }
 
 function set5DayForecast(forecast) {
 	const dailyForecasts = forecast.DailyForecasts
-
 	document.getElementById("5-day-forecast").innerHTML = dailyForecasts.map((forecast) => `
 		<div class="d-flex flex-row flex-grow-1" style="height: 50px; justify-content: space-between">
 			<h2 class="my-auto" style="width: 60px;"> ${dateToWeekDay(forecast.Date)} </h2>
 
 			<div class="d-flex flex-column justify-content-center align-items-center">
-				<img style="height: 50%; aspect-ratio: 1/1" src="./images/clouds.png" alt="logo"/>
+				<img style="height: 50%; aspect-ratio: 1/1" src="https://www.accuweather.com/assets/images/weather-icons/v2a/${forecast.Day.Icon}.svg" alt="logo"/>
 				<h4 class="m-0 p-0" style="color: #dde0e4ff"> ${forecast.Day.IconPhrase}</h4>
 			</div>
 
@@ -100,11 +100,10 @@ function set5DayForecast(forecast) {
 }
 
 function setTodayForecast(forecast) {
-	console.log(forecast)
 	document.getElementById("today-forcast").innerHTML = forecast.map((forecast) => `
 		<div class="forecast-item">
 			<span class="time"> ${dateToHour(forecast.DateTime)} </span>
-			<img src="https://cdn-icons-png.flaticon.com/512/414/414825.png" alt="cloudy">
+			<img src="https://www.accuweather.com/assets/images/weather-icons/v2a/${forecast.WeatherIcon}.svg" alt="cloudy">
 			<span class="temp">${fahrenheitToCelsius(forecast.Temperature.Value)}°</span>
 		</div>
 	`).join("<hr/>")
