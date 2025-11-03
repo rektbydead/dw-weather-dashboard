@@ -26,15 +26,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 				return
 			}
 
-			setTimeout(() => {
-				dropdown.innerHTML = matches.map((location) => `
-					<li class="w-100 m-2" style="padding: 8px; cursor: pointer" onclick="getWeatherData(${location})">
-						<h2 style="margin: 0; font-size: 1.2em;">${location.name}</h2>
-						<h4 style="margin: 0; font-weight: normal; font-size: 0.9em;">${location.country}</h4>
-					</li>`
-				).join("");
-			}, 1000)
-		}, 1500)
+			dropdown.innerHTML = matches.map((location) => `
+				<li class="w-100 m-2" style="padding: 8px; cursor: pointer" onclick='getWeatherData(${JSON.stringify(location)})'>
+					<h2 style="margin: 0; font-size: 1.2em;">${location.EnglishName}</h2>
+					<h4 style="margin: 0; font-weight: normal; font-size: 0.9em;">${location.Country.EnglishName}</h4>
+				</li>`
+			).join("");
+		}, 500)
 	})
 
 	/* Close dropdown when clicking outside */
@@ -74,7 +72,6 @@ function dateToHour(dateStr) {
 
 async function setLocation(location) {
 	const todayForecast = await getTodayForecast(location.Key)
-
 	document.getElementById("city-name").innerHTML = location.EnglishName
 	document.getElementById("city-chance-of-rain").innerHTML = `Chance of rain: ${todayForecast[0].PrecipitationProbability}%`
 	document.getElementById("city-temperature").innerHTML = `${fahrenheitToCelsius(todayForecast[0].Temperature.Value)}°`
@@ -110,6 +107,7 @@ function setTodayForecast(forecast) {
 }
 
 async function getWeatherData(location) {
+	console.log(location)
 	await setLocation(location)
 
 	const responses = await Promise.all([
