@@ -26,8 +26,16 @@
     flex-wrap: wrap;
 }
 
+.flex-nowrap {
+    flex-wrap: nowrap;
+}
+
 .justify-content-center {
     justify-content: center;
+}
+
+.justify-content-end {
+    justify-content: end;
 }
 
 .align-content-center {

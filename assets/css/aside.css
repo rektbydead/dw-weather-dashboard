@@ -1,3 +1,10 @@
+.daily-forecast-temperature {
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 60px;
+    text-align: right;
+}
+
 @media (max-width: 900px) {
     #page-main-content {
         aside {
@@ -42,6 +49,10 @@
                     h4 {
                         display: none;
                     }
+                }
+
+                .daily-forecast-temperature {
+                    text-align: center;
                 }
             }
         }

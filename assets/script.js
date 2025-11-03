@@ -92,7 +92,7 @@ function set5DayForecast(forecast) {
 				<h4 class="m-0 p-0" style="color: #dde0e4ff"> ${forecast.Day.IconPhrase}</h4>
 			</div>
 
-			<div class="my-auto">
+			<div class="daily-forecast-temperature">
 				<span style="color: #dde0e4ff">${fahrenheitToCelsius(forecast.Temperature.Maximum.Value)}</span><span>/${fahrenheitToCelsius(forecast.Temperature.Minimum.Value)}</span>
 			</div>
 		</div>
