@@ -116,44 +116,48 @@ html, body {
 }
 */
 
-.forecast {
+.today-forecast {
     display: flex;
+    height: 100%;
     justify-content: space-between;
     align-items: center;
-}
-
-.forecast-item {
-    text-align: center;
-    flex: 1;
-    position: relative;
-}
-
-.forecast-item:last-child {
-    border-right: none;
-}
-
-.forecast-item img {
-    width: 50px;
-    height: 50px;
-    margin: 8px 0;
-}
+    gap: 0.5rem;
+    overflow-y: hidden;
 
 
-.time {
-    display: block;
-    font-size: 13px;
-    color: #cbd5e1;
-}
-.temp {
-    display: block;
-    font-size: 18px;
-    font-weight: 600;
-    color: #fff;
-}
+    hr {
+        height: 50px;
+        border: none;
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        margin: 0 10px;
+    }
 
-.forecast hr {
-    height: 50px;
-    border: none;
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-    margin: 0 10px;
+    .today-forecast-item {
+        text-align: center;
+        flex: 1;
+        position: relative;
+
+        :last-child {
+            border-right: none;
+        }
+
+        .time {
+            display: block;
+            font-size: 13px;
+            color: #cbd5e1;
+        }
+
+        img {
+            width: 50px;
+            height: 50px;
+            margin: 8px 0;
+        }
+
+        .temp {
+            display: block;
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+        }
+    }
 }

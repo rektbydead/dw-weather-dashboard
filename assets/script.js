@@ -90,7 +90,8 @@ function set5DayForecast(forecast) {
 			</div>
 
 			<div class="daily-forecast-temperature">
-				<span style="color: #dde0e4ff">${fahrenheitToCelsius(forecast.Temperature.Maximum.Value)}</span><span>/${fahrenheitToCelsius(forecast.Temperature.Minimum.Value)}</span>
+				<span style="color: #dde0e4ff">${fahrenheitToCelsius(forecast.Temperature.Maximum.Value)}°</span> / 
+				<span>${fahrenheitToCelsius(forecast.Temperature.Minimum.Value)}°</span>
 			</div>
 		</div>
 	`).join(`<hr class="w-100">`)
@@ -98,7 +99,7 @@ function set5DayForecast(forecast) {
 
 function setTodayForecast(forecast) {
 	document.getElementById("today-forcast").innerHTML = forecast.map((forecast) => `
-		<div class="forecast-item">
+		<div class="today-forecast-item">
 			<span class="time"> ${dateToHour(forecast.DateTime)} </span>
 			<img src="https://www.accuweather.com/assets/images/weather-icons/v2a/${forecast.WeatherIcon}.svg" alt="cloudy">
 			<span class="temp">${fahrenheitToCelsius(forecast.Temperature.Value)}°</span>
