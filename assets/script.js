@@ -100,24 +100,8 @@ function set5DayForecast(forecast) {
 				/ 
 				<span>${fahrenheitToCelsius(forecast.Temperature.Minimum.Value)}°</span>
 			</div>
-		</div>
-		
-		
+		</div>	
 	`
-		/*
-		<div class="d-flex flex-row flex-grow-1" style="height: 50px; justify-content: space-between">
-			<h2 class="my-auto" style="width: 60px;"> ${dateToWeekDay(forecast.Date)} </h2>
-
-			<div class="d-flex flex-column justify-content-center align-items-center">
-				<img style="height: 50%; aspect-ratio: 1/1" src="https://www.accuweather.com/assets/images/weather-icons/v2a/${forecast.Day.Icon}.svg" alt="logo"/>
-				<h4 class="m-0 p-0" style="color: #dde0e4ff"> ${forecast.Day.IconPhrase}</h4>
-			</div>
-
-			<div class="daily-forecast-temperature">
-				<span style="color: #dde0e4ff">${fahrenheitToCelsius(forecast.Temperature.Maximum.Value)}°</span> / 
-				<span>${fahrenheitToCelsius(forecast.Temperature.Minimum.Value)}°</span>
-			</div>
-		</div>*/
 	).join(`<hr/>`)
 }
 

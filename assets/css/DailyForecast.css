@@ -7,51 +7,51 @@
     min-width: 350px;
     width: 350px;
     max-width: 350px;
-}
 
-.daily-forecast {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    overflow: auto;
-
-    hr {
+    .daily-forecast {
         display: flex;
-        align-self: center;
-        width: 75%;
-        border: none;
-        border-bottom: thin solid rgba(255, 255, 255, 0.1);
-    }
-
-    .hourly-forecast-item {
-        display: flex;
-        flex-direction: row;
+        flex-direction: column;
         flex-grow: 1;
-        align-items: center;
-        justify-content: space-between;
+        overflow: auto;
 
-        .hourly-forecast-item-day,
-        .hourly-forecast-item-temperature {
-            flex: 1;
-        }
-
-        .hourly-forecast-item-day {
-            text-align: start;
-        }
-
-        .hourly-forecast-item-image {
+        hr {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-content: center;
-
-            span {
-                text-align: center;
-            }
+            align-self: center;
+            width: 75%;
+            border: none;
+            border-bottom: thin solid rgba(255, 255, 255, 0.1);
         }
 
-        .hourly-forecast-item-temperature {
-            text-align: end;
+        .hourly-forecast-item {
+            display: flex;
+            flex-direction: row;
+            flex-grow: 1;
+            align-items: center;
+            justify-content: space-between;
+
+            .hourly-forecast-item-day,
+            .hourly-forecast-item-temperature {
+                flex: 1;
+            }
+
+            .hourly-forecast-item-day {
+                text-align: start;
+            }
+
+            .hourly-forecast-item-image {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-content: center;
+
+                span {
+                    text-align: center;
+                }
+            }
+
+            .hourly-forecast-item-temperature {
+                text-align: end;
+            }
         }
     }
 }
@@ -63,7 +63,10 @@
         height: auto;
 
         .daily-forecast {
+            gap: 0.5rem;
             flex-direction: row;
+            overflow: unset;
+            height: 100%;
 
             hr {
                 display: flex;
@@ -78,7 +81,6 @@
                 flex-grow: 1;
                 justify-content: unset;
                 flex-direction: column;
-                gap: 0.5rem;
 
                 .hourly-forecast-item-day, .hourly-forecast-item-temperature {
                     flex: unset;
