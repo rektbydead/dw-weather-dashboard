@@ -98,8 +98,8 @@ function set5DayForecast(forecast) {
 }
 
 function setTodayForecast(forecast) {
-	document.getElementById("today-forcast").innerHTML = forecast.map((forecast) => `
-		<div class="today-forecast-item">
+	document.getElementById("hourly-forcast").innerHTML = forecast.map((forecast) => `
+		<div class="hourly-forecast-item">
 			<span class="time"> ${dateToHour(forecast.DateTime)} </span>
 			<img src="https://www.accuweather.com/assets/images/weather-icons/v2a/${forecast.WeatherIcon}.svg" alt="cloudy">
 			<span class="temp">${fahrenheitToCelsius(forecast.Temperature.Value)}°</span>

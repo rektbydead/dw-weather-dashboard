@@ -116,7 +116,7 @@ html, body {
 }
 */
 
-.today-forecast {
+.hourly-forecast {
     display: flex;
     height: 100%;
     justify-content: space-between;
@@ -132,7 +132,7 @@ html, body {
         margin: 0 10px;
     }
 
-    .today-forecast-item {
+    .hourly-forecast-item {
         text-align: center;
         flex: 1;
         position: relative;
