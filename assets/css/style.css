@@ -126,7 +126,7 @@ html, body {
 
 
     hr {
-        height: 50px;
+        height: 50%;
         border: none;
         border-left: 1px solid rgba(255, 255, 255, 0.1);
         margin: 0 10px;

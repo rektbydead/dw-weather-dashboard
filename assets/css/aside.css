@@ -1,10 +1,105 @@
+.daily-forecast-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: hidden;
+
+    min-width: 350px;
+    width: 350px;
+    max-width: 350px;
+}
+
 .daily-forecast {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     overflow: auto;
+
+    hr {
+        display: flex;
+        align-self: center;
+        width: 75%;
+        border: none;
+        border-bottom: thin solid rgba(255, 255, 255, 0.1);
+    }
+
+    .hourly-forecast-item {
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+        align-items: center;
+        justify-content: space-between;
+
+        .hourly-forecast-item-day,
+        .hourly-forecast-item-temperature {
+            flex: 1;
+        }
+
+        .hourly-forecast-item-day {
+            text-align: start;
+        }
+
+        .hourly-forecast-item-image {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+
+            span {
+                text-align: center;
+            }
+        }
+
+        .hourly-forecast-item-temperature {
+            text-align: end;
+        }
+    }
 }
 
+@media (max-width: 1280px) {
+    .daily-forecast-container {
+        width: 100%;
+        max-width: unset;
+        height: auto;
+
+        .daily-forecast {
+            flex-direction: row;
+
+            hr {
+                display: flex;
+                align-self: center;
+                width: unset;
+                height: 50%;
+                border: none;
+                border-right: thin solid rgba(255, 255, 255, 0.1);
+            }
+
+            .hourly-forecast-item {
+                flex-grow: 1;
+                justify-content: unset;
+                flex-direction: column;
+                gap: 0.5rem;
+
+                .hourly-forecast-item-day, .hourly-forecast-item-temperature {
+                    flex: unset;
+                }
+
+                .hourly-forecast-item-image {
+                    img {
+                        height: 50px;
+                        aspect-ratio: 1/1;
+                    }
+
+                    span {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*
 .daily-forecast-temperature {
     margin-top: auto;
     margin-bottom: auto;
@@ -91,4 +186,4 @@
             }
         }
     }
-}
+} */

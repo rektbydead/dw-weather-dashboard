@@ -81,6 +81,30 @@ async function setLocation(location) {
 function set5DayForecast(forecast) {
 	const dailyForecasts = forecast.DailyForecasts
 	document.getElementById("daily-forecast").innerHTML = dailyForecasts.map((forecast) => `
+		<div class="hourly-forecast-item">
+			<span class="hourly-forecast-item-day"> ${dateToWeekDay(forecast.Date)} </span>
+			
+			<div class="hourly-forecast-item-image">
+				<img 
+					src="https://www.accuweather.com/assets/images/weather-icons/v2a/${forecast.Day.Icon}.svg" 
+					alt="hourly-forecast-item-${forecast.Day.Icon}"
+				/>
+				
+				 <span> ${forecast.Day.IconPhrase} </span>
+			</div>
+			
+			<div class="hourly-forecast-item-temperature">
+				<span style="color: #dde0e4ff">
+					${fahrenheitToCelsius(forecast.Temperature.Maximum.Value)}°
+				</span> 
+				/ 
+				<span>${fahrenheitToCelsius(forecast.Temperature.Minimum.Value)}°</span>
+			</div>
+		</div>
+		
+		
+	`
+		/*
 		<div class="d-flex flex-row flex-grow-1" style="height: 50px; justify-content: space-between">
 			<h2 class="my-auto" style="width: 60px;"> ${dateToWeekDay(forecast.Date)} </h2>
 
@@ -93,8 +117,8 @@ function set5DayForecast(forecast) {
 				<span style="color: #dde0e4ff">${fahrenheitToCelsius(forecast.Temperature.Maximum.Value)}°</span> / 
 				<span>${fahrenheitToCelsius(forecast.Temperature.Minimum.Value)}°</span>
 			</div>
-		</div>
-	`).join(`<hr class="w-100">`)
+		</div>*/
+	).join(`<hr/>`)
 }
 
 function setTodayForecast(forecast) {
