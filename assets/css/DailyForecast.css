@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    overflow: hidden;
 
     min-width: 350px;
     width: 350px;
@@ -13,6 +12,7 @@
         flex-direction: column;
         flex-grow: 1;
         overflow: auto;
+        gap: 0.5rem;
 
         hr {
             display: flex;
@@ -90,102 +90,27 @@
                     img {
                         height: 50px;
                         aspect-ratio: 1/1;
+                        margin: 8px 0;
                     }
 
                     span {
                         display: none;
                     }
                 }
-            }
-        }
-    }
-}
 
-/*
-.daily-forecast-temperature {
-    margin-top: auto;
-    margin-bottom: auto;
-    width: 60px;
-    text-align: right;
-}
+                .hourly-forecast-item-temperature {
+                    font-size: 18px;
+                    font-weight: 600;
 
-@media (max-width: 900px) {
-
-    section {
-        #conteudo-principal {
-            h1 {
-                font-size: 3rem !important;
-            }
-
-            h2 {
-                font-size: 1.5rem !important;
-            }
-
-            #conteudo-principal-imagem {
-                width: 50% !important;
-                height: unset !important;
-                align-content: end;
-
-                img {
-                    width: 100% !important;
-                    height: unset !important;
-                }
-            }
-        }
-    }
-
-    #page-main-content {
-        aside {
-            min-width: unset !important;
-            width: 100% !important;
-        }
-    }
-}
-
-@media (max-width: 1280px) {
-
-    aside {
-        width: 100% !important;
-
-        .daily-forecast {
-            flex-direction: row !important;
-            height: 100px !important;
-            gap: 1rem !important;
-
-            hr {
-                width: unset !important;
-            }
-
-            div {
-                height: unset !important;
-                flex-direction: column !important;
-                justify-content: center;
-                align-items: center;
-
-                h2 {
-                    display: block;
-                    font-size: 13px;
-                    color: #cbd5e1;
-                    text-align: center;
-                }
-
-                div {
-                    img {
-                        min-width: 50px !important;
-                        width: 50px !important;
-                        min-height: 50px !important;
-                        height: 50px !important;
+                    .maximum {
+                        color: var(--text-color-secondary);
                     }
 
-                    h4 {
-                        display: none;
+                    .minimum {
+                        color: var(--text-color-primary);
                     }
-                }
-
-                .daily-forecast-temperature {
-                    text-align: center;
                 }
             }
         }
     }
-} */
+}

@@ -94,11 +94,11 @@ function set5DayForecast(forecast) {
 			</div>
 			
 			<div class="hourly-forecast-item-temperature">
-				<span style="color: #dde0e4ff">
+				<span class="maximum">
 					${fahrenheitToCelsius(forecast.Temperature.Maximum.Value)}°
 				</span> 
 				/ 
-				<span>${fahrenheitToCelsius(forecast.Temperature.Minimum.Value)}°</span>
+				<span class="minimum">${fahrenheitToCelsius(forecast.Temperature.Minimum.Value)}°</span>
 			</div>
 		</div>	
 	`
