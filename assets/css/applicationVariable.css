@@ -13,4 +13,10 @@
 
     --font-weight-normal: normal;
     --font-weight-declarative: 600;
+
+    --font-size-small: smaller;
+    --font-size-normal: medium;
+    --font-size-large: large;
+    --font-size-x-large: x-large;
+    --font-size-xx-large: xx-large;
 }

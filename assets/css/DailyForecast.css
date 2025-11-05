@@ -36,6 +36,7 @@
 
             .daily-forecast-item-day {
                 text-align: start;
+                font-weight: var(--font-weight-declarative);
             }
 
             .daily-forecast-item-image {
@@ -58,6 +59,11 @@
 
             .daily-forecast-item-temperature {
                 text-align: end;
+                font-weight: var(--font-weight-declarative);
+
+                .maximum {
+                    color: var(--text-color-secondary);
+                }
             }
         }
     }
