@@ -7,6 +7,7 @@
 
     <title>Weather App</title>
     <link rel="stylesheet" href="assets/css/style.css"/>
+    <link rel="stylesheet" href="assets/css/cities/style.css"/>
     <link rel="stylesheet" href="assets/css/Navbar.css"/>
     <link rel="stylesheet" href="assets/css/Searchbar.css"/>
     <link rel="stylesheet" href="assets/css/bootstrapClasses.css"/>
@@ -63,29 +64,33 @@
                     </ul>
                 </div>
 
-                <div class="d-flex flex-grow-3" style="flex-basis: 0;" id="conteudo-principal">
-                    <div class="d-flex flex-column flex-grow-1 gap-3" style="border:  1px solid red !important;">
+                <div class="section-content">
+                    <div class="city-list" id="city-list">
+                        <!--<div class="city-item border-round border-color">
 
-                        <div class="d-flex flex-row w-100" style="height: 150px; border:  1px solid red !important;">
-
-                        </div>
-
-                        <div class="d-flex flex-row w-100" style="height: 150px; border:  1px solid red !important;">
-
-                        </div>
-
-                        <div class="d-flex flex-row w-100" style="height: 150px; border:  1px solid red !important;">
-
-                        </div>
-
-                        <div class="d-flex flex-row w-100" style="height: 150px; border:  1px solid red !important;">
-
-                        </div>
-
+                        </div>-->
                     </div>
+                    <!-- <div class="d-flex flex-column flex-grow-1 gap-3" style="border:  1px solid red !important; flex: 1 1 0; box-sizing: border-box;">
 
-                    <div class="d-flex flex-grow-1" style="border:  1px solid red !important;">
+                        <div class="d-flex flex-row w-100" style="height: 150px; border:  1px solid red !important;">
 
+                        </div>
+
+                        <div class="d-flex flex-row w-100" style="height: 150px; border:  1px solid red !important;">
+
+                        </div>
+
+                        <div class="d-flex flex-row w-100" style="height: 150px; border:  1px solid red !important;">
+
+                        </div>
+
+                        <div class="d-flex flex-row w-100" style="height: 150px; border:  1px solid red !important;">
+
+                        </div>
+
+                    </div>-->
+
+                    <div>
                     </div>
                 </div>
             </section>
@@ -106,6 +111,8 @@
     </footer>
 
     <script src="./assets/javascript/WeatherAPI.js"></script>
-    <script src="./assets/script.js"></script>
+    <script src="./assets/javascript/utils.js"></script>
+    <script src="./assets/javascript/cities/script.js"></script>
+    <!--<script src="./assets/script.js"></script>-->
 </body>
 </html>

@@ -1,0 +1,42 @@
+.section-content {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+    border: 1px solid blue;
+
+    > div {
+        width: 50%;
+        gap: var(--spacing-3);
+
+        &:nth-child(2) {
+            padding: var(--spacing-3);
+
+        }
+    }
+
+    .city-list {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        overflow-y: auto;
+        gap: var(--spacing-3);
+        min-width: 460px;
+
+        .city-item {
+            display: flex;
+            padding: var(--spacing-3);
+            gap: var(--spacing-3);
+            height: 150px;
+            background-color: var(--bg-color-primary);
+
+            .city-name {
+                font-size: 2rem;
+                color: var(--text-color-secondary)
+            }
+        }
+    }
+
+    .city-item-active {
+        background-color: var(--bg-color-secondary) !important;
+    }
+}
