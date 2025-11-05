@@ -96,8 +96,8 @@ function set5DayForecast(forecast) {
 			<div class="daily-forecast-item-temperature">
 				<span class="maximum">
 					${fahrenheitToCelsius(forecast.Temperature.Maximum.Value)}°
-				</span> 
-				/ 
+				</span>
+				<span class="slash"> / </span>
 				<span class="minimum">${fahrenheitToCelsius(forecast.Temperature.Minimum.Value)}°</span>
 			</div>
 		</div>	

@@ -66,13 +66,14 @@
 @media (max-width: 1280px) {
     .daily-forecast-container {
         width: 100%;
+        min-width: unset;
         max-width: unset;
         height: auto;
 
         .daily-forecast {
             gap: 0.5rem;
             flex-direction: row;
-            overflow: unset;
+            overflow-y: unset;
             height: 100%;
 
             hr {
@@ -106,8 +107,9 @@
                 }
 
                 .daily-forecast-item-temperature {
+                    display: block;
                     font-size: 18px;
-                    font-weight: 600;
+                    font-weight: var(--font-weight-declarative);
 
                     .maximum {
                         color: var(--text-color-secondary);
