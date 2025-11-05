@@ -126,6 +126,7 @@ function setTodayForecast(forecast) {
 
 async function getWeatherData(location) {
 	console.log(location)
+	localStorage.setItem(`default-location`, JSON.stringify(location))
 	await setLocation(location)
 
 	const responses = await Promise.all([
