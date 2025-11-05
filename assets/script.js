@@ -6,8 +6,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 	const input = document.getElementById("weather-search-input")
 	const dropdown = document.getElementById("search-dropdown")
-	const dropdownSpinner = document.getElementById("search-dropdown-spinner")
-	// console.log(dropdown, dropdownSpinner)
 
 	input.addEventListener("input", () => {
 		clearTimeout(searchTypingTimeout)
