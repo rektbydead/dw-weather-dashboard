@@ -73,18 +73,59 @@ html, body {
             width: 100% !important;
         }
     }
-}
 
+    #conteudo-principal {
+        height: 100% !important;
+        flex-basis: unset !important;
+        overflow: hidden !important;
 
-/*
-.search-bar-container:focus-within {
-    border-color: var(--border-color);
-    background-color: var(--bg-color-primary);
-}
+        #conteudo-principal-content {
 
-#search-dropdown {
-    li:hover {
-        background-color: var(--bg-color-primary);
+        }
+
+        #conteudo-principal-imagem {
+            height: 300px !important;
+        }
     }
 }
-*/
+
+@media (max-width: 700px) {
+    #conteudo-principal {
+        flex-direction: column;
+        gap: var(--spacing-1);
+        padding: 0;
+
+        #conteudo-principal-content {
+            flex-direction: row;
+
+            #conteudo-principal-name {
+                text-align: start;
+
+                #city-chance-of-rain {
+                    white-space: nowrap;
+                }
+            }
+
+            #conteudo-principal-temperature {
+                margin-bottom: auto !important;
+                margin-top: unset !important;
+                margin-left: auto;
+                text-align: end;
+
+                h1 {
+                    font-size: 4rem !important;
+                }
+            }
+        }
+
+        #conteudo-principal-imagem {
+            display: flex;
+            margin-right: auto !important;
+
+            img {
+                width: unset !important;
+                height: unset !important;
+            }
+        }
+    }
+}
