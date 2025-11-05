@@ -10,4 +10,7 @@
     --spacing-1: 0.5rem;
     --spacing-2: 1rem;
     --spacing-3: 1.5rem;
+
+    --font-weight-normal: normal;
+    --font-weight-declarative: 600;
 }

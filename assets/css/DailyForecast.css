@@ -51,6 +51,8 @@
 
                 span {
                     text-align: center;
+                    font-weight: var(--font-weight-declarative);
+                    color: var(--text-color-secondary)
                 }
             }
 
@@ -87,7 +89,7 @@
                 justify-content: unset;
                 flex-direction: column;
 
-                .daily-forecast-item-day, .hourly-forecast-item-stemperature {
+                .daily-forecast-item-day, .daily-forecast-item-temperature {
                     flex: unset;
                 }
 
