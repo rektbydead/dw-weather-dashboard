@@ -28,7 +28,7 @@
 
             .time {
                 display: block;
-                font-size: 13px;
+                font-weight: var(--font-weight-declarative);
                 color: var(--text-color-primary);
             }
 
@@ -40,7 +40,6 @@
 
             .temperature {
                 display: block;
-                font-size: 18px;
                 font-weight: var(--font-weight-declarative);
                 color: var(--text-color-secondary);
             }

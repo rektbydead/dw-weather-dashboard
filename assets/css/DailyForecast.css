@@ -114,7 +114,6 @@
 
                 .daily-forecast-item-temperature {
                     display: block;
-                    font-size: 18px;
                     font-weight: var(--font-weight-declarative);
 
                     .maximum {
