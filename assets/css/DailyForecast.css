@@ -46,7 +46,9 @@
                 align-content: center;
 
                 img {
-                    height: 100%;
+                    width: unset !important;
+                    height: 100px;
+                    max-height: 100px;
                     aspect-ratio: 1/1;
                 }
 
