@@ -39,6 +39,14 @@
                 text-align: center;
             }
         }
+
+        .link-active {
+            color: var(--text-color-secondary);
+
+            svg {
+                fill: var(--text-color-secondary);
+            }
+        }
     }
 }
 
