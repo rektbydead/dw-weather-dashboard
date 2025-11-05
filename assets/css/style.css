@@ -14,8 +14,11 @@ html, body {
 }
 
 #app {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-3);
     height: 100%;
-    padding: 1.5rem;
+    padding: var(--spacing-3);
     box-sizing: border-box;
 }
 
