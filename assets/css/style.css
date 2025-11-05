@@ -73,29 +73,8 @@ html, body {
             width: 100% !important;
         }
     }
-
-    .search-wrapper {
-        width: 100% !important;
-    }
 }
 
-.search-wrapper {
-    position: relative;
-}
-
-.search-input {
-    background-color: transparent;
-    border: none;
-    color: var(--text-color-primary);
-    font-size: 1.25rem;
-    outline: none;
-    width: 100%;
-}
-
-.search-input::placeholder {
-    color: var(--text-color-primary);
-    opacity: 0.75;
-}
 
 /*
 .search-bar-container:focus-within {
