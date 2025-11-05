@@ -28,6 +28,7 @@
             flex-direction: column;
             align-items: center;
             gap: 0.5rem;
+            cursor: pointer;
 
             svg {
                 width: 25px;
@@ -42,6 +43,7 @@
 
         .link-active {
             color: var(--text-color-secondary);
+            cursor: default;
 
             svg {
                 fill: var(--text-color-secondary);
