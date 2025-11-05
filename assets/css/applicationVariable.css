@@ -6,4 +6,17 @@
     --text-color-secondary: #dde0e4ff;
 
     --border-color: #a6b3c2;
+
+    --spacing-1: 0.5rem;
+    --spacing-2: 1rem;
+    --spacing-3: 1.5rem;
+
+    --font-weight-normal: normal;
+    --font-weight-declarative: 600;
+
+    --font-size-small: smaller;
+    --font-size-normal: medium;
+    --font-size-large: large;
+    --font-size-x-large: x-large;
+    --font-size-xx-large: xx-large;
 }

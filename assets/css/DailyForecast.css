@@ -1,0 +1,134 @@
+.daily-forecast-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    min-width: 350px;
+    width: 350px;
+    max-width: 350px;
+
+    .daily-forecast {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        overflow: auto;
+        gap: 0.5rem;
+
+        hr {
+            display: flex;
+            align-self: center;
+            width: 75%;
+            border: none;
+            border-bottom: thin solid rgba(255, 255, 255, 0.1);
+        }
+
+        .daily-forecast-item {
+            display: flex;
+            flex-direction: row;
+            flex-grow: 1;
+            align-items: center;
+            justify-content: space-between;
+
+            .daily-forecast-item-day,
+            .daily-forecast-item-temperature {
+                flex: 1;
+            }
+
+            .daily-forecast-item-day {
+                text-align: start;
+                font-weight: var(--font-weight-declarative);
+            }
+
+            .daily-forecast-item-image {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-content: center;
+
+                img {
+                    margin: auto;
+                    height: 100px;
+                    max-height: 100px;
+                    width: 100px;
+                    max-width: 100px;
+                    aspect-ratio: 1/1;
+                }
+
+                span {
+                    text-align: center;
+                    font-weight: var(--font-weight-declarative);
+                    color: var(--text-color-secondary)
+                }
+            }
+
+            .daily-forecast-item-temperature {
+                text-align: end;
+                font-weight: var(--font-weight-declarative);
+
+                .maximum {
+                    color: var(--text-color-secondary);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1280px) {
+    .daily-forecast-container {
+        width: 100%;
+        min-width: unset;
+        max-width: unset;
+        height: auto;
+
+        .daily-forecast {
+            gap: 0.5rem;
+            flex-direction: row;
+            overflow-y: unset;
+            height: 100%;
+
+            hr {
+                display: flex;
+                align-self: center;
+                width: unset;
+                height: 50%;
+                border: none;
+                border-right: thin solid rgba(255, 255, 255, 0.1);
+            }
+
+            .daily-forecast-item {
+                flex-grow: 1;
+                justify-content: unset;
+                flex-direction: column;
+
+                .daily-forecast-item-day, .daily-forecast-item-temperature {
+                    flex: unset;
+                }
+
+                .daily-forecast-item-image {
+                    img {
+                        height: 50px;
+                        aspect-ratio: 1/1;
+                        margin: 8px 0;
+                    }
+
+                    span {
+                        display: none;
+                    }
+                }
+
+                .daily-forecast-item-temperature {
+                    display: block;
+                    font-weight: var(--font-weight-declarative);
+
+                    .maximum {
+                        color: var(--text-color-secondary);
+                    }
+
+                    .minimum {
+                        color: var(--text-color-primary);
+                    }
+                }
+            }
+        }
+    }
+}
