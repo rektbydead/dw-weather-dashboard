@@ -22,30 +22,30 @@
             border-bottom: thin solid rgba(255, 255, 255, 0.1);
         }
 
-        .hourly-forecast-item {
+        .daily-forecast-item {
             display: flex;
             flex-direction: row;
             flex-grow: 1;
             align-items: center;
             justify-content: space-between;
 
-            .hourly-forecast-item-day,
-            .hourly-forecast-item-temperature {
+            .daily-forecast-item-day,
+            .daily-forecast-item-temperature {
                 flex: 1;
             }
 
-            .hourly-forecast-item-day {
+            .daily-forecast-item-day {
                 text-align: start;
             }
 
-            .hourly-forecast-item-image {
+            .daily-forecast-item-image {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-content: center;
 
                 img {
-                    height: 100px;
+                    height: 100%;
                     aspect-ratio: 1/1;
                 }
 
@@ -54,7 +54,7 @@
                 }
             }
 
-            .hourly-forecast-item-temperature {
+            .daily-forecast-item-temperature {
                 text-align: end;
             }
         }
@@ -82,16 +82,16 @@
                 border-right: thin solid rgba(255, 255, 255, 0.1);
             }
 
-            .hourly-forecast-item {
+            .daily-forecast-item {
                 flex-grow: 1;
                 justify-content: unset;
                 flex-direction: column;
 
-                .hourly-forecast-item-day, .hourly-forecast-item-temperature {
+                .daily-forecast-item-day, .hourly-forecast-item-stemperature {
                     flex: unset;
                 }
 
-                .hourly-forecast-item-image {
+                .daily-forecast-item-image {
                     img {
                         height: 50px;
                         aspect-ratio: 1/1;
@@ -103,7 +103,7 @@
                     }
                 }
 
-                .hourly-forecast-item-temperature {
+                .daily-forecast-item-temperature {
                     font-size: 18px;
                     font-weight: 600;
 
