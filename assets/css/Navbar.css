@@ -67,6 +67,19 @@
             gap: 0.5rem;
             cursor: pointer;
 
+            &:hover:not(.link-active) {
+                color: var(--text-color-secondary);
+
+                svg {
+                    fill: var(--text-color-secondary);
+                    transition: fill 0.3s ease;
+                }
+
+                &:hover {
+                    transition: color 0.3s ease, opacity 0.3s ease;
+                }
+            }
+
             svg {
                 width: 25px;
                 height: 25px;
