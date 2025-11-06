@@ -73,6 +73,12 @@
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
+
+                h1 {
+                    color: var(--text-color-secondary);
+                    margin: 0;
+                    font-size: 4rem;
+                }
             }
 
             .city-info-image {
@@ -84,8 +90,48 @@
 }
 
 .hourly-forecast-container, .daily-forecast-container {
-    min-height: 200px;
-    max-height: 200px;
+    min-height: 250px;
+    max-height: 250px;
+}
+
+.daily-forecast-container {
+    width: 100%;
+    max-width: unset;
+
+    .daily-forecast {
+        flex-direction: row;
+
+        hr {
+            display: flex;
+            align-self: center;
+            width: unset;
+            height: 50%;
+            border: none;
+            border-right: thin solid rgba(255, 255, 255, 0.1);
+        }
+
+        .daily-forecast-item {
+            flex-direction: column;
+            justify-content: center;
+
+            .daily-forecast-item-day, .daily-forecast-item-temperature {
+                flex: unset;
+            }
+
+            .daily-forecast-item-image {
+                img {
+                    height: 50px;
+                    aspect-ratio: 1/1;
+                    margin: 8px 0;
+                }
+
+                span {
+                    display: none;
+                }
+            }
+
+        }
+    }
 }
 
 @media (max-width: 900px) {
