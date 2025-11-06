@@ -1,9 +1,9 @@
 const ACCUWEATHER_API_KEY = "zpka_760a7f024433458ea1b84c1b33211150_924d685f"
 const CACHE_TIMEOUT = 1800 * 1000 // 30 minutes
 
-async function cachedFetch(url, options) {
+async function cachedFetch(url) {
 	const now = Date.now();
-	const cached = localStorage.get(url);
+	const cached = localStorage.getItem(url);
 
 	if (cached && now - cached.timestamp < CACHE_TIMEOUT) {
 		return cached.data
