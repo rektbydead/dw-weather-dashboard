@@ -53,9 +53,50 @@
                 transition: background-color 0.3s ease;
             }
         }
+
+        .city-item-active {
+            background-color: var(--bg-color-secondary) !important;
+        }
     }
 
-    .city-item-active {
-        background-color: var(--bg-color-secondary) !important;
+    .city-forecast {
+        display: flex;
+        flex-grow: 1;
+
+        .city-forecast-container {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+
+            .city-info {
+
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            img {
+                height: 350px;
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .section-content {
+        flex-grow: 1;
+        flex-direction: column;
+
+        .city-list, .city-forecast {
+            width: 100%;
+        }
+
+        > div {
+            &:nth-child(2) {
+                border-top: 1px solid var(--bg-color-secondary);
+                padding: var(--spacing-3) 0 0 0;
+                margin: var(--spacing-3) 0 0 0;
+            }
+        }
     }
 }
