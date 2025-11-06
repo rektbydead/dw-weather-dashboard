@@ -60,11 +60,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 		`
 
 		cityItem.addEventListener("click", async () => {
-			// const forecast = await getWeatherForecast(city.key)
+			const forecast = await getWeatherForecast(city.key)
 
 			document.querySelectorAll(".city-item").forEach(item => {
 				item.classList.remove("city-item-active")
 			})
+
+			// set5DayForecast(forecast[0])
+			setTodayForecast(forecast[1])
 
 			cityItem.classList.add("city-item-active");
 		})
@@ -72,3 +75,39 @@ document.addEventListener("DOMContentLoaded", async () => {
 		cityListElement.appendChild(cityItem)
 	})
 })
+// function set5DayForecast(forecast) {
+// 	const dailyForecasts = forecast.DailyForecasts
+// 	document.getElementById("daily-forecast").innerHTML = dailyForecasts.map((forecast) => `
+// 		<div class="daily-forecast-item">
+// 			<span class="daily-forecast-item-day"> ${dateToWeekDay(forecast.Date)} </span>
+//
+// 			<div class="daily-forecast-item-image">
+// 				<img
+// 					src="https://www.accuweather.com/assets/images/weather-icons/v2a/${forecast.Day.Icon}.svg"
+// 					alt="daily-forecast-item-${forecast.Day.Icon}"
+// 				/>
+//
+// 				 <span> ${forecast.Day.IconPhrase} </span>
+// 			</div>
+//
+// 			<div class="daily-forecast-item-temperature">
+// 				<span class="maximum">
+// 					${fahrenheitToCelsius(forecast.Temperature.Maximum.Value)}°
+// 				</span>
+// 				<span class="slash"> / </span>
+// 				<span class="minimum">${fahrenheitToCelsius(forecast.Temperature.Minimum.Value)}°</span>
+// 			</div>
+// 		</div>
+// 	`
+// 	).join(`<hr/>`)
+// }
+
+function setTodayForecast(forecast) {
+	document.getElementById("hourly-forcast").innerHTML = forecast.map((forecast) => `
+		<div class="hourly-forecast-item">
+			<span class="time"> ${dateToHour(forecast.DateTime)} </span>
+			<img src="https://www.accuweather.com/assets/images/weather-icons/v2a/${forecast.WeatherIcon}.svg" alt="cloudy">
+			<span class="temperature">${fahrenheitToCelsius(forecast.Temperature.Value)}°</span>
+		</div>
+	`).join("<hr/>")
+}

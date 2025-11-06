@@ -75,7 +75,7 @@
                 justify-content: space-between;
             }
 
-            img {
+            .city-info-image {
                 height: 350px;
             }
         }
