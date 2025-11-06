@@ -76,10 +76,16 @@
             }
 
             .city-info-image {
-                height: 350px;
+                height: 250px;
+                min-height: 150px;
             }
         }
     }
+}
+
+.hourly-forecast-container, .daily-forecast-container {
+    min-height: 200px;
+    max-height: 200px;
 }
 
 @media (max-width: 900px) {
