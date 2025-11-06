@@ -67,9 +67,9 @@
             display: flex;
             width: 100%;
             flex-direction: column;
+            gap: var(--spacing-3);
 
             .city-info {
-
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
