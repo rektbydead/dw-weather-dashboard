@@ -2,6 +2,7 @@
     display: flex;
     flex-grow: 1;
     overflow: hidden;
+    min-height: auto;
     border: 1px solid blue;
 
     > div {
@@ -16,17 +17,20 @@
 
     .city-list {
         display: flex;
-        flex-grow: 1;
         flex-direction: column;
         overflow-y: auto;
         gap: var(--spacing-3);
-        min-width: 460px;
+        width: 50%;
+        min-height: 100%;
+
 
         .city-item {
             display: flex;
             padding: var(--spacing-3);
             gap: var(--spacing-3);
+            min-height: 150px;
             height: 150px;
+            max-height: 150px;
             background-color: var(--bg-color-primary);
             cursor: pointer;
 
