@@ -28,10 +28,25 @@
             gap: var(--spacing-3);
             height: 150px;
             background-color: var(--bg-color-primary);
+            cursor: pointer;
 
-            .city-name {
+             div {
+                 .city-name {
+                     font-size: 2rem;
+                     color: var(--text-color-secondary);
+                     font-weight: var(--font-weight-declarative);
+                 }
+            }
+
+            span.city-temperature {
                 font-size: 2rem;
+                font-weight: var(--font-weight-declarative);
                 color: var(--text-color-secondary)
+            }
+
+            &:hover {
+                background-color: var(--bg-color-secondary);
+                transition: background-color 0.3s ease;
             }
         }
     }

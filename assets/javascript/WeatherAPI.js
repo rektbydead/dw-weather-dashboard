@@ -46,3 +46,10 @@ async function getTodayForecast(locationKey) {
 	const url = `https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${locationKey}`
 	return cachedFetch(url)
 }
+
+async function getWeatherForecast(locationKey) {
+	return await Promise.all([
+		get5DayForecast(locationKey),
+		getTodayForecast(locationKey)
+	])
+}
