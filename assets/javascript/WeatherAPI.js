@@ -1,12 +1,16 @@
-const ACCUWEATHER_API_KEY = "zpka_760a7f024433458ea1b84c1b33211150_924d685f"
+const ACCUWEATHER_API_KEY = "zpka_4c902dcffc1e420d89266e698c538429_4c1d4a53	"
 const CACHE_TIMEOUT = 1800 * 1000 // 30 minutes
 
 async function cachedFetch(url) {
-	const now = Date.now();
-	const cached = localStorage.getItem(url);
+	const now = Date.now()
 
-	if (cached && now - cached.timestamp < CACHE_TIMEOUT) {
-		return cached.data
+	const cachedData = localStorage.getItem(url)
+	if (cachedData) {
+		const cachedObject = JSON.parse(localStorage.getItem(url))
+
+		if (now - cachedObject.timestamp < CACHE_TIMEOUT) {
+			return cachedObject.data
+		}
 	}
 
 	const response = await fetch(url, {
@@ -16,9 +20,8 @@ async function cachedFetch(url) {
 	})
 
 	const data = await response.json()
-
-	localStorage.setItem(url, { data, timestamp: now })
-	return data;
+	localStorage.setItem(url, JSON.stringify({ data: data, timestamp: now }))
+	return data
 }
 
 
