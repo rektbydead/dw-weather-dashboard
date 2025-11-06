@@ -4,15 +4,15 @@ function setDefaultSettings() {
 	const useWeekDay = localStorage.getItem("settings-useWeekDay")
 
 	if (useCelsius === null) {
-		localStorage.setItem("settings-useCelsius", "false")
+		localStorage.setItem("settings-useCelsius", "true")
 	}
 
 	if (useTwelveHourNotation === null) {
-		localStorage.setItem("settings-useTwelveHourNotation", "true")
+		localStorage.setItem("settings-useTwelveHourNotation", "false")
 	}
 
 	if (useWeekDay === null) {
-		localStorage.setItem("settings-useWeekDay", "true")
+		localStorage.setItem("settings-useWeekDay", "false")
 	}
 }
 
