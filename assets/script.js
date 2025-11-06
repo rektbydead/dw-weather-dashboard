@@ -56,6 +56,9 @@ async function getWeatherData(location) {
 	localStorage.setItem(`default-location`, JSON.stringify(location))
 	await setLocation(location)
 
+	const dropdown = document.getElementById("search-dropdown")
+	dropdown.innerHTML = ""
+
 	const responses = await Promise.all([
 		get5DayForecast(location.Key),
 		getTodayForecast(location.Key)
