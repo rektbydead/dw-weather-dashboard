@@ -49,15 +49,15 @@
         <main class="d-flex flex-grow-1 flex-row gap-3 overflow-hidden" id="page-main-content">
             <section class="d-flex flex-column flex-grow-6 gap-3" style="min-width: 700px; overflow: hidden">
                 <div class="search-wrapper">
-                    <label for="weather-search-input" class="border-round border-color bg-color">
+                    <label for="weather-search-input" class="border-round border-color bg-color" >
                         <svg class="icon" viewBox="0 0 512 512" aria-hidden="true">
                             <path d="M505 442.7L405.3 343a208 208 0 1 0-62.3 62.3L442.7 505a40 40 0 0 0 56.6-56.6zM208 336a128 128 0 1 1 128-128 128.14 128.14 0 0 1-128 128z"/>
                         </svg>
 
-                        <input
+                        <input disabled
                             type="text"
                             id="weather-search-input"
-                            placeholder="Search for a city..."
+                            placeholder="Search for a city... (disabled)"
                             class="search-input border-round"
                         />
                     </label>
@@ -74,16 +74,16 @@
                         <div class="city-forecast-container" style="overflow-y: auto;">
                             <div class="city-info">
                                 <div>
-                                    <h1 id="city-name"> Country </h1>
-                                    <h2 id="city-chance-of-rain"> Change of rain: 0%</h2>
+                                    <h1 id="city-name"> </h1>
+                                    <h2 id="city-chance-of-rain"></h2>
                                 </div>
 
                                 <div class="h-100" id="conteudo-principal-temperature">
-                                    <h1 id="city-temperature"> 23 </h1>
+                                    <h1 id="city-temperature"> </h1>
                                 </div>
                             </div>
 
-                            <img src="https://www.accuweather.com/assets/images/weather-icons/v2a/6.svg" class="city-info-image" style="aspect-ratio: 1/1" alt="logo"/>
+                            <img class="city-info-image" id="city-weather-image" style="aspect-ratio: 1/1" alt="logo"/>
 
                             <div class="hourly-forecast-container bg-color border-round border-color p-3 gap-3">
                                 <h3 class="m-0"> TODAY'S FORECAST </h3>
@@ -109,6 +109,7 @@
         Provided by <a href="https://www.accuweather.com/" target="_blank" style="color: var(--text-color-secondary)">AccuWeather</a>
     </footer>
 
+    <script src="./assets/javascript/ForecastHtmlGenerator.js"></script>
     <script src="./assets/javascript/WeatherAPI.js"></script>
     <script src="./assets/javascript/utils.js"></script>
     <script src="./assets/javascript/cities/script.js"></script>

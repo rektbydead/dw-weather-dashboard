@@ -1,23 +1,11 @@
 const cityList = [
 	{
-		name: "New York",
-		key: "349727",
-	},
-	{
-		name: "London",
-		key: "328328",
-	},
-	{
 		name: "Porto",
 		key: "275317",
 	},
 	{
 		name: "Lisbon",
 		key: "1557084",
-	},
-	{
-		name: "Paris",
-		key: "623",
 	},
 	{
 		name: "Berlin",
@@ -38,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 		cityItem.classList.add("city-item", "border-round", "border-color");
 
 		if (index === 0) {
-			cityItem.classList.add("city-item-active");
+			cityItem.classList.add("city-item-active")
 		}
 
 		cityItem.innerHTML = `
@@ -66,6 +54,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 				item.classList.remove("city-item-active")
 			})
 
+			setLocation({
+				Key: city.key,
+				EnglishName: city.name,
+			})
 			set5DayForecast(forecast[0])
 			setTodayForecast(forecast[1])
 
@@ -74,41 +66,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 		cityListElement.appendChild(cityItem)
 	})
+
+	const forecast = await getWeatherForecast(cityList[0].key)
+	setLocation({
+		Key: cityList[0].key,
+		EnglishName: cityList[0].name,
+	})
+	set5DayForecast(forecast[0])
+	setTodayForecast(forecast[1])
 })
-
-function set5DayForecast(forecast) {
-	const dailyForecasts = forecast.DailyForecasts
-	document.getElementById("daily-forecast").innerHTML = dailyForecasts.map((forecast) => `
-		<div class="daily-forecast-item">
-			<span class="daily-forecast-item-day"> ${dateToWeekDay(forecast.Date)} </span>
-
-			<div class="daily-forecast-item-image">
-				<img
-					src="https://www.accuweather.com/assets/images/weather-icons/v2a/${forecast.Day.Icon}.svg"
-					alt="daily-forecast-item-${forecast.Day.Icon}"
-				/>
-
-				 <span> ${forecast.Day.IconPhrase} </span>
-			</div>
-
-			<div class="daily-forecast-item-temperature">
-				<span class="maximum">
-					${fahrenheitToCelsius(forecast.Temperature.Maximum.Value)}°
-				</span>
-				<span class="slash"> / </span>
-				<span class="minimum">${fahrenheitToCelsius(forecast.Temperature.Minimum.Value)}°</span>
-			</div>
-		</div>
-	`
-	).join(`<hr/>`)
-}
-
-function setTodayForecast(forecast) {
-	document.getElementById("hourly-forcast").innerHTML = forecast.map((forecast) => `
-		<div class="hourly-forecast-item">
-			<span class="time"> ${dateToHour(forecast.DateTime)} </span>
-			<img src="https://www.accuweather.com/assets/images/weather-icons/v2a/${forecast.WeatherIcon}.svg" alt="cloudy">
-			<span class="temperature">${fahrenheitToCelsius(forecast.Temperature.Value)}°</span>
-		</div>
-	`).join("<hr/>")
-}

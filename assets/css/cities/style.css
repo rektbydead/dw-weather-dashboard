@@ -3,7 +3,6 @@
     flex-grow: 1;
     overflow: hidden;
     min-height: auto;
-    border: 1px solid blue;
 
     > div {
         width: 50%;
