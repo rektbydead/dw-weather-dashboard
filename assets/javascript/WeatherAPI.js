@@ -28,6 +28,12 @@ async function cachedFetch(url) {
 const defaultLocationKey = "349727"
 
 async function getDefaultLocation() {
+	const cachedData = localStorage.getItem('default-location')
+
+	if (cachedData) {
+		return JSON.parse(cachedData)
+	}
+
 	const url = `https://dataservice.accuweather.com/locations/v1/${defaultLocationKey}/`
 	return cachedFetch(url)
 }
