@@ -1,15 +1,18 @@
 .units-card {
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
+    gap: var(--spacing-3);
 }
 
 .units-card h2 {
     font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 20px;
+    font-weight: var(--font-weight-declarative);
+    margin-bottom: var(--spacing-2);
 }
 
 .unit-section {
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-2);
 }
 
 .unit-section h3 {
@@ -17,14 +20,14 @@
     font-weight: var(--font-weight-declarative);
     color: var(--text-color-primary);
     letter-spacing: 1px;
-    margin-bottom: 8px;
+    margin-bottom:  var(--spacing-1);
 }
 
 .unit-options {
     display: flex;
     background-color: var(--bg-color-secondary);
     overflow: hidden;
-    padding: 0.5rem;
+    padding: var(--spacing-1);
 }
 
 .unit-options input[type="radio"] {
@@ -35,7 +38,7 @@
     flex: 1;
     padding: var(--spacing-1) 0;
     text-align: center;
-    color: #999;
+    color: var(--text-color-primary);
     cursor: pointer;
     font-size: 14px;
     transition: all 0.2s ease;
@@ -43,5 +46,7 @@
 
 .unit-options input[type="radio"]:checked + label {
     background-color: var(--bg-color-primary);
-    color: var(--text-color-primary);
+    color: var(--text-color-secondary);
 }
+
+

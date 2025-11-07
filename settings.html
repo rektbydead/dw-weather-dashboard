@@ -65,20 +65,40 @@
                 </div>
 
                 <div class="d-flex flex-grow-1">
-                    <div class="d-flex flex-column w-50 h-100" style="border: 1px solid red">
+                    <div class="d-flex flex-column w-50 h-100">
                         <h2> Units </h2>
 
                         <div class="units-card border-round border-color bg-color p-3">
                             <div class="unit-section">
                                 <h3>TEMPERATURE</h3>
-
                                 <div class="unit-options border-round">
-
-                                    <input type="radio" name="temperature" id="celsius" checked>
+                                    <input type="radio" name="temperature" id="celsius" value="true" checked>
                                     <label for="celsius" class="border-round">Celsius</label>
 
-                                    <input type="radio" name="temperature" id="fahrenheit">
+                                    <input type="radio" name="temperature" id="fahrenheit" value="false">
                                     <label for="fahrenheit" class="border-round">Fahrenheit</label>
+                                </div>
+                            </div>
+
+                            <div class="unit-section">
+                                <h3>HOUR FORMAT</h3>
+                                <div class="unit-options border-round">
+                                    <input type="radio" name="hour-format" id="12-format" value="true" checked>
+                                    <label for="12-format" class="border-round">12-hour</label>
+
+                                    <input type="radio" name="hour-format" id="24-format" value="false">
+                                    <label for="24-format" class="border-round">24-hour</label>
+                                </div>
+                            </div>
+
+                            <div class="unit-section">
+                                <h3>DATE FORMAT</h3>
+                                <div class="unit-options border-round">
+                                    <input type="radio" name="date-format" id="date" value="false" checked>
+                                    <label for="date" class="border-round">Date</label>
+
+                                    <input type="radio" name="date-format" id="weekDay" value="true">
+                                    <label for="weekDay" class="border-round">Week Day</label>
                                 </div>
                             </div>
                         </div>
@@ -88,73 +108,6 @@
 
                     </div>
                 </div>
-
-                    <!--<div class="unit-section">
-                        <h3>TEMPERATURE</h3>
-                        <div class="unit-options">
-                            <input type="radio" name="temperature" id="celsius" checked>
-                            <label for="celsius">Celsius</label>
-
-                            <input type="radio" name="temperature" id="fahrenheit">
-                            <label for="fahrenheit">Fahrenheit</label>
-                        </div>
-                    </div>
-
-                    <div class="unit-section">
-                        <h3>WIND SPEED</h3>
-                        <div class="unit-options">
-                            <input type="radio" name="wind" id="kmh" checked>
-                            <label for="kmh">km/h</label>
-
-                            <input type="radio" name="wind" id="ms">
-                            <label for="ms">m/s</label>
-
-                            <input type="radio" name="wind" id="knots">
-                            <label for="knots">Knots</label>
-                        </div>
-                    </div>
-
-                    <div class="unit-section">
-                        <h3>PRESSURE</h3>
-                        <div class="unit-options">
-                            <input type="radio" name="pressure" id="hpa">
-                            <label for="hpa">hPa</label>
-
-                            <input type="radio" name="pressure" id="inches">
-                            <label for="inches">Inches</label>
-
-                            <input type="radio" name="pressure" id="kpa">
-                            <label for="kpa">kPa</label>
-
-                            <input type="radio" name="pressure" id="mm" checked>
-                            <label for="mm">mm</label>
-                        </div>
-                    </div>
-
-                    <div class="unit-section">
-                        <h3>PRECIPITATION</h3>
-                        <div class="unit-options">
-                            <input type="radio" name="precip" id="millimeters" checked>
-                            <label for="millimeters">Millimeters</label>
-
-                            <input type="radio" name="precip" id="inches2">
-                            <label for="inches2">Inches</label>
-                        </div>
-                    </div>
-
-                    <div class="unit-section">
-                        <h3>DISTANCE</h3>
-                        <div class="unit-options">
-                            <input type="radio" name="distance" id="km" checked>
-                            <label for="km">Kilometers</label>
-
-                            <input type="radio" name="distance" id="miles">
-                            <label for="miles">Miles</label>
-                        </div>
-                    </div>
-                </div>-->
-
-
             </section>
         </main>
     </div>
@@ -166,6 +119,6 @@
     <script src="./assets/javascript/SettingUsage.js"></script>
     <script src="./assets/javascript/WeatherAPI.js"></script>
     <script src="assets/javascript/DataFormatter.js"></script>
-    <!--<script src="./assets/script.js"></script>-->
+    <script src="./assets/javascript/settings/script.js"></script>
 </body>
 </html>
