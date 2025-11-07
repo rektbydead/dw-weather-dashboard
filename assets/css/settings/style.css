@@ -1,0 +1,138 @@
+.units-card {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: var(--spacing-3);
+}
+
+.units-card h2 {
+    font-size: 20px;
+    font-weight: var(--font-weight-declarative);
+    margin-bottom: var(--spacing-2);
+}
+
+.unit-section {
+    margin-bottom: var(--spacing-2);
+}
+
+.unit-section h3 {
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-declarative);
+    color: var(--text-color-primary);
+    letter-spacing: 1px;
+    margin-bottom:  var(--spacing-1);
+}
+
+.unit-options {
+    display: flex;
+    background-color: var(--bg-color-secondary);
+    overflow: hidden;
+    padding: var(--spacing-1);
+}
+
+.unit-options input[type="radio"] {
+    display: none;
+}
+
+.unit-options label {
+    flex: 1;
+    padding: var(--spacing-1) 0;
+    text-align: center;
+    color: var(--text-color-primary);
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.unit-options input[type="radio"]:checked + label {
+    background-color: var(--bg-color-primary);
+    color: var(--text-color-secondary);
+}
+
+
+.section-content {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+    min-height: auto;
+
+    .settings-list {
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        gap: var(--spacing-3);
+        width: 50%;
+        min-height: 100%;
+    }
+}
+
+
+.hourly-forecast-container, .daily-forecast-container {
+    min-height: 250px;
+    max-height: 250px;
+}
+
+.daily-forecast-container {
+    width: 100%;
+    max-width: unset;
+
+    .daily-forecast {
+        flex-direction: row;
+
+        hr {
+            display: flex;
+            align-self: center;
+            width: unset;
+            height: 50%;
+            border: none;
+            border-right: thin solid rgba(255, 255, 255, 0.1);
+        }
+
+        .daily-forecast-item {
+            flex-direction: column;
+            justify-content: center;
+
+            .daily-forecast-item-day, .daily-forecast-item-temperature {
+                flex: unset;
+            }
+
+            .daily-forecast-item-image {
+                img {
+                    height: 50px;
+                    aspect-ratio: 1/1;
+                    margin: 8px 0;
+                }
+
+                span {
+                    display: none;
+                }
+            }
+
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .section-content {
+        flex-grow: 1;
+        flex-direction: column;
+
+        .city-list, .city-forecast {
+            width: 100%;
+        }
+
+        > div {
+            &:nth-child(2) {
+                border-top: 1px solid var(--bg-color-secondary);
+                padding: var(--spacing-3) 0 0 0;
+                margin: var(--spacing-3) 0 0 0;
+            }
+        }
+
+    }
+
+    .settings-list {
+        width: 100% !important;
+    }
+}
+

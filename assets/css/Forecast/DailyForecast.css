@@ -32,6 +32,7 @@
             .daily-forecast-item-day,
             .daily-forecast-item-temperature {
                 flex: 1;
+                text-wrap: nowrap;
             }
 
             .daily-forecast-item-day {

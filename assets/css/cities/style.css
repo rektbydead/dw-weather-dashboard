@@ -1,0 +1,153 @@
+.section-content {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+    min-height: auto;
+
+    > div {
+        width: 50%;
+        gap: var(--spacing-3);
+
+        &:nth-child(2) {
+            padding: var(--spacing-3);
+
+        }
+    }
+
+    .city-list {
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        gap: var(--spacing-3);
+        width: 50%;
+        min-height: 100%;
+
+
+        .city-item {
+            display: flex;
+            padding: var(--spacing-3);
+            gap: var(--spacing-3);
+            min-height: 150px;
+            height: 150px;
+            max-height: 150px;
+            background-color: var(--bg-color-primary);
+            cursor: pointer;
+
+             div {
+                 .city-name {
+                     font-size: 2rem;
+                     color: var(--text-color-secondary);
+                     font-weight: var(--font-weight-declarative);
+                 }
+            }
+
+            span.city-temperature {
+                font-size: 2rem;
+                font-weight: var(--font-weight-declarative);
+                color: var(--text-color-secondary)
+            }
+
+            &:hover {
+                background-color: var(--bg-color-secondary);
+                transition: background-color 0.3s ease;
+            }
+        }
+
+        .city-item-active {
+            background-color: var(--bg-color-secondary) !important;
+        }
+    }
+
+    .city-forecast {
+        display: flex;
+        flex-grow: 1;
+
+        .city-forecast-container {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            gap: var(--spacing-3);
+
+            .city-info {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                h1 {
+                    color: var(--text-color-secondary);
+                    margin: 0;
+                    font-size: 4rem;
+                }
+            }
+
+            .city-info-image {
+                height: 250px;
+                min-height: 150px;
+            }
+        }
+    }
+}
+
+.hourly-forecast-container, .daily-forecast-container {
+    min-height: 250px;
+    max-height: 250px;
+}
+
+.daily-forecast-container {
+    width: 100%;
+    max-width: unset;
+
+    .daily-forecast {
+        flex-direction: row;
+
+        hr {
+            display: flex;
+            align-self: center;
+            width: unset;
+            height: 50%;
+            border: none;
+            border-right: thin solid rgba(255, 255, 255, 0.1);
+        }
+
+        .daily-forecast-item {
+            flex-direction: column;
+            justify-content: center;
+
+            .daily-forecast-item-day, .daily-forecast-item-temperature {
+                flex: unset;
+            }
+
+            .daily-forecast-item-image {
+                img {
+                    height: 50px;
+                    aspect-ratio: 1/1;
+                    margin: 8px 0;
+                }
+
+                span {
+                    display: none;
+                }
+            }
+
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .section-content {
+        flex-grow: 1;
+        flex-direction: column;
+
+        .city-list, .city-forecast {
+            width: 100%;
+        }
+
+        > div {
+            &:nth-child(2) {
+                border-top: 1px solid var(--bg-color-secondary);
+                padding: var(--spacing-3) 0 0 0;
+                margin: var(--spacing-3) 0 0 0;
+            }
+        }
+    }
+}
