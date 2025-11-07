@@ -118,6 +118,14 @@
 
         .links-container {
             flex-direction: row;
+
+            .link {
+                a {
+                    span {
+                        display: none;
+                    }
+                }
+            }
         }
     }
 }
