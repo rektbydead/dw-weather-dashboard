@@ -118,11 +118,22 @@
 
         .links-container {
             flex-direction: row;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .nav {
+        gap: 2rem;
+        overflow: hidden;
+
+        .links-container {
+            flex-direction: row;
 
             .link {
                 a {
                     span {
-                        display: none;
+                        font-size: 0.70rem;
                     }
                 }
             }
