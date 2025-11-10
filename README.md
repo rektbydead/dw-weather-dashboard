@@ -5,8 +5,9 @@ The purpose of this website is to provide a responsive web application that disp
 #### Features:
 + Today's forecast section displaying the current weather conditions.
 + Week's forecast section displaying the upcoming 5-day weather conditions.
-+ List of popular cities for quick access
-+ Settings panel to modify how the information is displayed
++ List of popular cities for quick access.
++ Settings panel to modify how the information is displayed.
++ On page refresh, the application automatically shows the last searched city.
 
 #### Performance:
 In order to improve performance, the application uses `localStorage` to cache all the data retrieved from the API, up to 30 minutes, in order to reduce network requests and avoid exceed the API request limit.
