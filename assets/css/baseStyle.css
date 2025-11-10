@@ -6,7 +6,7 @@ html, body {
     height: 100%;
     width: 100%;
     color: var(--text-color-primary) !important;
-    background-color: #0b121e;
+    background-color: var(--bg-color-secondary);
 }
 
 *, *::before, *::after {
